@@ -11,5 +11,8 @@
   "dependencies": {
     "@capacitor/cli": "^1.5.1",
     "@capacitor/core": "^1.5.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.1"
   }
 }

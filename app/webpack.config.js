@@ -1,6 +1,8 @@
 module.exports = {
     entry: './www/src/index.js',
     output: {
-        filename: './../www/main.js',
-    }
-  };
+        filename: './main.js',
+        path: __dirname + '/www'
+    },
+    devtool: 'source-map'
+};
