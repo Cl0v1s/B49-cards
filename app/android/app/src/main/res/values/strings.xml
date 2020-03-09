@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">B49</string>
+    <string name="title_activity_main">B49</string>
+    <string name="package_name">com.dogson.b49</string>
+    <string name="custom_url_scheme">com.dogson.b49</string>
+</resources>

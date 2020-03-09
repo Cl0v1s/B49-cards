@@ -1,0 +1,8 @@
+{
+  "appId": "com.dogson.b49",
+  "appName": "B49",
+  "bundledWebRuntime": true,
+  "npmClient": "npm",
+  "webDir": "www",
+  "windowsAndroidStudioPath": "E:\\Android\\AndroidStudio\\bin\\studio64.exe" 
+}
