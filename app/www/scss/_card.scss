@@ -1,10 +1,14 @@
 .card {
     $ratio: 0.7;
+    $font-size: 5vh;
 
     position: relative;
 
     height: 100vh;
     width: calc(100vh * #{$ratio});
+
+    color: white;
+    font-family: Arial, sans-serif;
 
     &::before {
         content: '';
@@ -15,7 +19,6 @@
         height: 100%;
         background-image: url(./res/background.png);
         background-size: cover;
-        filter: sepia(100%) saturate(500%) hue-rotate(290deg);
     }
 
     .picture {
@@ -25,5 +28,35 @@
         transform: translate(-50%, -50%);
         height: 50%;
         width: auto;
+        -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent);
+    }
+
+    h4.name {
+        position: absolute;
+        top: 72%;
+        left: 0;
+        width: 100%;
+        text-align: center;  
+        font-size: $font-size+2;  
+        
+        small {
+            position: absolute;
+            font-size: $font-size - 2.5;
+            right: 10%;
+            transform: translateY(-50%);
+            top: 50%;
+            text-align: right;
+            width: 20%;
+        }
+    }
+
+    .description {
+        position: absolute;
+        bottom:  10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        font-size: $font-size;      
     }
 }
