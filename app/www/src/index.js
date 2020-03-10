@@ -1,3 +1,5 @@
+import './../scss/main.scss';
+
 import Discover from './Discover';
 import CardFactory from './CardFactory';
 
@@ -10,5 +12,7 @@ import CardFactory from './CardFactory';
 
     const promises = discover.devices.map(device => CardFactory.buildCardFromId(device.id));
     const cards = (await Promise.all(promises)).filter(e => e != null);
-    console.log(cards);
+    cards.forEach((card) => {
+        document.body.appendChild(card.render());
+    });
 })();
