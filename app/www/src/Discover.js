@@ -9,28 +9,15 @@ class Discover {
 
     async scan() {
         console.log('starting scan');
-        if (window.ble != null) {
-            await new Promise((resolve, reject) => {
-                const time = 5;
-                ble.startScan([], this.handleDevice.bind(this), reject);
-                setTimeout(resolve, 5 * 1000);
-            });
-            ble.stopScan();
+        console.log(window.QRScanner);
+        if(window.QRScanner) {
+            const text = await new Promise(resolve => QRScanner.scan((err, text) => resolve(text)) && QRScanner.show());
+            alert(text);
         } else {
-            this.devices = [{
-                    id: '5D-B4-EA-74-0D-5D'
-                },
-                {
-                    id: '57:B0:EC:CF:67:2F'
-                }
-            ]
+            this.devices = ["clovis.portron", "clovis.portron"];
         }
+        
         console.log('scan done');
-    }
-
-    handleDevice(device) {
-        console.log('device with id ' + device.id + ' discovered.');
-        this.devices.push(device);
     }
 }
 

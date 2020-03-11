@@ -1,12 +1,11 @@
 class Card {
-    constructor() {
+    constructor(data = {}) {
         this.index = Card.INDEX;
-        this.description = null;
-        this.picture = null;
-        this.name = null;
-        this.surname = null;
-        this.color = null;
-
+        this.description = data.description;
+        this.picture = data.picture;
+        this.name = data.name;
+        this.surname = data.surname;
+        this.color = data.color;
         Card.INDEX++;
     }
 
@@ -30,6 +29,16 @@ class Card {
         this.color = color;
     }
 
+    save() {
+        return {
+            picture: this.picture,
+            name: this.name,
+            surname: this.surname,
+            description: this.description,
+            color: this.color,
+        }
+    }
+
     render() {
         const div = document.createElement('div');
         div.classList.add('card');
@@ -48,7 +57,7 @@ class Card {
                 ${this.description}
             </div>
         `;
-        return div;
+        return div.outerHTML;
     }
 }
 

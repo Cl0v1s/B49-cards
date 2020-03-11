@@ -1,0 +1,18 @@
+b49-deck {
+    padding-top: 20px;
+
+    .cards {
+        scroll-snap-type: x mandatory;
+        white-space: nowrap;
+
+        .card {
+            scroll-snap-align: center;
+            margin-left: 10px;
+            margin-right: 10px;
+            display: inline-block;
+            top: 50vh;
+            transform: translateY(-50%);
+            position: relative;
+        }
+    }
+}

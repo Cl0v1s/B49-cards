@@ -25,6 +25,16 @@ class CardFactory {
         card.setDescription(content.description);
         return card;
     }
+
+    static save(cards) {
+        window.localStorage.setItem('cards', JSON.stringify(cards));
+    }
+
+    static load() {
+        let cards = window.localStorage.getItem('cards');
+        cards = cards ? JSON.parse(cards) : [];
+        return cards.map(c => new Card(c));
+    }
 }
 
 CardFactory.SITE = null;
