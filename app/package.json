@@ -18,8 +18,8 @@
     "@capacitor/cli": "^1.5.1",
     "@capacitor/core": "^1.5.1",
     "@fortawesome/fontawesome-free": "^5.12.1",
-    "cordova-plugin-qrscanner": "^3.0.1",
-    "hybrids": "^4.1.6"
+    "hybrids": "^4.1.6",
+    "phonegap-plugin-barcodescanner": "^8.1.0"
   },
   "devDependencies": {
     "css-loader": "^3.4.2",
