@@ -3,7 +3,7 @@ import CardFactory from './../CardFactory';
 
 
 export const Deck = {
-    cards: CardFactory.load(),
+    cards: [],
 
     render: render(
         ({ cards }) => html`

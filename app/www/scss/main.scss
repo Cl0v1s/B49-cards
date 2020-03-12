@@ -1,6 +1,10 @@
+@import './variables';
+
 @import './card';
 @import './deck';
 @import './btn';
+
+
 
 html, body {
     margin: 0;
@@ -8,5 +12,6 @@ html, body {
 }
 
 body {
-    background-color: #222831;
+    //background-color: #222831;
+    background-color: $background;
 }
