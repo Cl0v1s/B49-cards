@@ -9,43 +9,25 @@ class Discover {
 
     async scan() {
         console.log('starting scan');
-        cordova.plugins.barcodeScanner.scan(
-            function (result) {
-                alert("We got a barcode\n" +
-                    "Result: " + result.text + "\n" +
-                    "Format: " + result.format + "\n" +
-                    "Cancelled: " + result.cancelled);
-            },
-            function (error) {
-                alert("Scanning failed: " + error);
+        let result = null;
+        if(window.cordova && cordova.plugins && cordova.plugins.barcodeScanner) {
+            try {
+                result = await new Promise((resolve, reject) => cordova.plugins.barcodeScanner.scan(resolve, reject));
+                if(result.cancelled) result = null;
+                else {
+                    result = result.text;
+                }
+            } catch(e) {
+                console.error(e);
+                alert('Impossible de démarrer l\'appareil photo.');
+                result = null;
             }
-        );
-
-        /*console.log(window.QRScanner);
-        if(window.QRScanner) {
-            const text = await new Promise((resolve) => {
-                var done = function(err, status){
-                    if(err){
-                      console.error(err._message);
-                    } else {
-                      console.log('QRScanner is initialized. Status:');
-                      console.log(status);
-                    }
-                  };
-                  
-                QRScanner.prepare(done);
-                QRScanner.show();
-                QRScanner.getStatus(function(status){
-                    console.log(status);
-                });
-                QRScanner.scan((err, text) => resolve(text));
-            });
-            alert(text);
         } else {
-            this.devices = ["clovis.portron", "clovis.portron"];
-        }*/
-
-
+            result = "clovis.portron";
+        }
+        if(result != null) {
+            this.devices = [result];
+        }
         console.log('scan done');
     }
 }
