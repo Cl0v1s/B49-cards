@@ -1,12 +1,17 @@
 class Card {
     constructor(data = {}) {
         this.index = Card.INDEX;
+        this.id = data.id;
         this.description = data.description;
         this.picture = data.picture;
         this.name = data.name;
         this.surname = data.surname;
         this.color = data.color;
         Card.INDEX++;
+    }
+
+    setId(id) {
+        this.id = id;
     }
 
     setDescription(description) {
@@ -36,6 +41,7 @@ class Card {
             surname: this.surname,
             description: this.description,
             color: this.color,
+            id: this.id,
         }
     }
 
