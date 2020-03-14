@@ -1,4 +1,5 @@
 import { html, define, render } from 'hybrids';
+import MatRipple from 'mat-ripple';
 
 import CardFactory from './../CardFactory';
 
@@ -12,9 +13,12 @@ export const back = (host) => {
 export const ShareView = {
     render: render(
         ({url}) => html`
-            <img src=${url} />
+            <div class='code'>
+                <img src=${url} />
+            </div>
             <button class='btn btn--float' onclick='${back}'>
                 <i class="fa fas fa-undo fa-3x"></i>
+                <mat-ripple></mat-ripple>
             </button>
         `,
         { shadowRoot: false },

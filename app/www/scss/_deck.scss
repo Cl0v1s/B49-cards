@@ -2,14 +2,16 @@ b49-deck {
     .cards {
         scroll-snap-type: x mandatory;
         white-space: nowrap;
+        overflow: hidden;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        padding-top: 10px;
 
         .card {
             scroll-snap-align: center;
             margin-left: 10px;
             margin-right: 10px;
             display: inline-block;
-            top: 50vh;
-            transform: translateY(-50%);
             position: relative;
         }
     }

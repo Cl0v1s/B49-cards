@@ -1,6 +1,8 @@
 import { html, define, render } from 'hybrids';
+import MatRipple from 'mat-ripple';
 import './Deck';
 import './ShareView';
+
 
 import Discover from './../Discover';
 import CardFactory from './../CardFactory';
@@ -33,9 +35,11 @@ export const Home = {
             <b49-deck cards=${cards}></b49-deck>
             <button class='btn btn--float' onclick=${scan}>
                 <i class="fa fas fa-qrcode fa-3x"></i>
+                <mat-ripple></mat-ripple>
             </button>
             <button class='btn btn--float btn--outline' onclick=${emit}>
                 <i class="fa fas fa-share-alt-square fa-2x"></i>
+                <mat-ripple></mat-ripple>
             </button>
         `,
         { shadowRoot: false },

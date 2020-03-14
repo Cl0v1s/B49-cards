@@ -7,7 +7,7 @@ export const Deck = {
 
     render: render(
         ({ cards }) => html`
-            <div class='cards' innerHTML=${cards.map(c => c.render())}>
+            <div class='cards' innerHTML=${cards.map(c => c.render()).join('')}>
             </div>
         `,
         { shadowRoot: false },

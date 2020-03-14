@@ -1,9 +1,30 @@
+@import './variables';
+
 b49-share {
-    img {
+    transform: translateX(-100%);
+    display: block;
+    @include page;
+
+    .code {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        //box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        padding: 10px;
+        border-radius: 100%;
+        $size: 40vw;
+        width: $size;
+        height: $size;
+        background-color: white;
+
+        text-align: center;
+        line-height: 25vw;
+        img {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60%;
+        }
     }
 }

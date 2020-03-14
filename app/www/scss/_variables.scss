@@ -1,2 +1,18 @@
 $background: #EFF4F6;
 $primary: #7E4A99;
+
+@keyframes appear {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@mixin page {
+    animation: appear 0.3s ease normal;
+    animation-fill-mode: forwards;
+    height: 100%;
+}

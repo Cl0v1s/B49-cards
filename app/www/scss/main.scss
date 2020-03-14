@@ -1,14 +1,17 @@
 @import './variables';
 
 @import './card';
+@import './home';
 @import './deck';
 @import './btn';
 @import './share';
 
 
+
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 body {
