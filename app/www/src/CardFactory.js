@@ -19,7 +19,7 @@ class CardFactory {
         content = await content.json();
         const card = new Card();
         card.setId(content.id);
-        card.setPicture(`${CardFactory.SITE}/${id}/picture.png`);
+        await card.setPicture(`${CardFactory.SITE}/${id}/picture.png`);
         card.setName(content.name);
         card.setSurname(content.surname);
         card.setColor(content.color);

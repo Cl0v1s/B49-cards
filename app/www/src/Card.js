@@ -18,8 +18,13 @@ class Card {
         this.description = description;
     }
 
-    setPicture(picture) {
-        this.picture = picture;
+    async setPicture(picture) {
+        const response = await fetch(picture);
+        const blob = await response.blob();
+        const reader = new FileReader();
+        reader.readAsDataURL(blob); 
+        await new Promise(resolve => (reader.onloadend = resolve));
+        this.picture = reader.result;
     }
 
     setName(name) {

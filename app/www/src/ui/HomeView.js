@@ -13,7 +13,7 @@ const scan = async (host) => {
 
     const promises = discover.devices.map(device => CardFactory.buildCardFromId(device));
     let cards = (await Promise.all(promises)).filter(e => e != null);
-    cards = cards.concat(CardFactory.load());
+    cards = CardFactory.load().concat(cards);
     CardFactory.save(cards);
     host.cards = cards;
 }
@@ -27,6 +27,17 @@ const emit = async (host) => {
     share.url = url;
     document.body.appendChild(share);
 }
+
+export const init = async (host) => {
+    const load = CardFactory.load();
+    if(load.length > 0) return load;
+    const code = window.prompt("Saisissez votre code utilisateur pour initialiser l'application");
+    let cards = [await CardFactory.buildCardFromId(atob(code))];
+    cards = CardFactory.load().concat(cards);
+    CardFactory.save(cards);
+    host.cards = cards;
+    return cards;
+};
 
 export const Home = {
     cards: CardFactory.load(),
