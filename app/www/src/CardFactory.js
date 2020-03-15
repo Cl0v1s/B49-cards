@@ -27,14 +27,15 @@ class CardFactory {
         return card;
     }
 
-    static save(cards) {
+    static save(_cards) {
+        const cards = _cards.filter(e => e != null);
         window.localStorage.setItem('cards', JSON.stringify(cards));
     }
 
     static load() {
         let cards = window.localStorage.getItem('cards');
         cards = cards ? JSON.parse(cards) : [];
-        return cards.map(c => new Card(c));
+        return cards.map(c => new Card(c)).filter(e => e != null);
     }
 }
 
