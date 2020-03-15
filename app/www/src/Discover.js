@@ -1,3 +1,7 @@
+import QrScanner from 'qr-scanner';
+import QrScannerWorkerPath from '!!file-loader!./../../node_modules/qr-scanner/qr-scanner-worker.min.js';
+QrScanner.WORKER_PATH = QrScannerWorkerPath;
+
 class Discover {
     constructor() {
         this.devices = [];
@@ -16,7 +20,26 @@ class Discover {
 
     async scan() {
         console.log('starting scan');
+        let video = document.createElement('video');
+        video.classList.add('full-screen');
+        document.body.appendChild(video);
+        let qrScanner = null;
         let result = null;
+        try {
+            result = await new Promise((resolve, reject) => {
+                qrScanner = new QrScanner(video, resolve);
+                video.addEventListener('click', reject);
+                qrScanner.start();
+            });
+        } catch(e) {
+            result = null;
+        }
+        qrScanner.destroy();
+        qrScanner = null;
+        video.remove();
+        video = null;
+
+        /*let result = null;
         if(window.cordova && cordova.plugins && cordova.plugins.barcodeScanner) {
             try {
                 result = await new Promise((resolve, reject) => cordova.plugins.barcodeScanner.scan(resolve, reject));
@@ -31,8 +54,9 @@ class Discover {
             }
         } else {
             result = "clovis.portron";
-        }
+        }*/
         if(result != null) {
+            result = atob(result);
             this.devices = [result];
         }
         console.log('scan done');
