@@ -33,7 +33,7 @@ export const init = async (host) => {
     if(load.length > 0) return load;
     const code = window.prompt("Saisissez votre code utilisateur pour initialiser l'application");
     let cards = [await CardFactory.buildCardFromId(atob(code))];
-    cards = CardFactory.load().concat(cards);
+    cards = CardFactory.load().concat(cards).filter(e => e != null);
     CardFactory.save(cards);
     host.cards = cards;
     return cards;
