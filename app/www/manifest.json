@@ -8,8 +8,8 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#31d53d",
-  "theme_color": "#31d53d",
+  "background_color": "#7E4A99",
+  "theme_color": "#7E4A99",
   "version": "1.0.0",
   "manifest_version": "1.0.0"
 }
