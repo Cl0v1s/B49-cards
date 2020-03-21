@@ -28,10 +28,10 @@
 
     .picture {
         position: absolute;
-        top: 40%;
+        top: 39%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 50%;
+        height: 65%;
         width: auto;
 
         &:not(.picture-plain) {
@@ -51,15 +51,19 @@
         text-align: center;  
         font-size: $font-size;  
         
-        small {
-            position: absolute;
-            font-size: $font-size - 2.5;
-            right: 10%;
-            transform: translateY(-50%);
-            top: 50%;
-            text-align: right;
-            width: 20%;
-        }
+   
+    }
+
+    small {
+        font-size: $font-size - 2.5;
+
+        position: absolute;
+font-size: 2.5vh;
+left: 50%;
+top: 78%;
+text-align: center;
+width: 20%;
+transform: translateX(-50%);
     }
 
     .description {

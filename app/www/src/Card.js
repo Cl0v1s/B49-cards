@@ -73,12 +73,12 @@ class Card {
         div.classList.add(`card-${this.index}`);
         div.style.backgroundColor = this.color;
         div.innerHTML = `
+            <small>
+                ${this.surname}
+            </small>
             <img class='picture ${this.plainImage ? 'picture-plain' : ''}' src=${this.picture} />
             <h4 class='name'>
                 ${this.name}
-                <small>
-                    ${this.surname}
-                </small>
             </h4>
             <div class='description'>
                 ${this.description}
