@@ -71,8 +71,7 @@ class Card {
         const div = document.createElement('div');
         div.classList.add('card');
         div.classList.add(`card-${this.index}`);
-        const styleElem = document.head.appendChild(document.createElement("style"));
-        styleElem.innerHTML = `.card-${this.index}::before { filter: ${this.color};  }`;
+        div.style.backgroundColor = this.color;
         div.innerHTML = `
             <img class='picture ${this.plainImage ? 'picture-plain' : ''}' src=${this.picture} />
             <h4 class='name'>
