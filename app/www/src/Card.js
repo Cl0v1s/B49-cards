@@ -7,6 +7,7 @@ class Card {
         this.name = data.name;
         this.surname = data.surname;
         this.color = data.color;
+        this.plainImage = data.plainImage;
         Card.INDEX++;
     }
 
@@ -18,6 +19,20 @@ class Card {
         this.description = description;
     }
 
+    async analysePictureType() {
+        const img = new Image();
+        img.src=this.picture;
+        await new Promise(resolve => (img.onload = resolve));
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+        const pixelData = canvas.getContext('2d').getImageData(0, 0, 1, 1).data;
+        if(pixelData[3]>=255) this.plainImage = true;
+        console.log(pixelData);
+        console.log(this.plainImage);
+    }
+
     async setPicture(picture) {
         const response = await fetch(picture);
         const blob = await response.blob();
@@ -25,6 +40,7 @@ class Card {
         reader.readAsDataURL(blob); 
         await new Promise(resolve => (reader.onloadend = resolve));
         this.picture = reader.result;
+        await this.analysePictureType();        
     }
 
     setName(name) {
@@ -47,6 +63,7 @@ class Card {
             description: this.description,
             color: this.color,
             id: this.id,
+            plainImage: this.plainImage
         }
     }
 
@@ -57,7 +74,7 @@ class Card {
         const styleElem = document.head.appendChild(document.createElement("style"));
         styleElem.innerHTML = `.card-${this.index}::before { filter: ${this.color};  }`;
         div.innerHTML = `
-            <img class='picture' src=${this.picture} />
+            <img class='picture ${this.plainImage ? 'picture-plain' : ''}' src=${this.picture} />
             <h4 class='name'>
                 ${this.name}
                 <small>

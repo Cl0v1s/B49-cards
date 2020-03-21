@@ -32,16 +32,23 @@
         transform: translate(-50%, -50%);
         height: 50%;
         width: auto;
-        -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent);
+
+        &:not(.picture-plain) {
+            -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent);
+        }
+
+        &.picture-plain {
+            border-radius: 4px;
+        }
     }
 
     h4.name {
         position: absolute;
-        top: 67%;
+        top: 73%;
         left: 0;
         width: 100%;
         text-align: center;  
-        font-size: $font-size+2;  
+        font-size: $font-size;  
         
         small {
             position: absolute;

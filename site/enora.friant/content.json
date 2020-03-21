@@ -3,6 +3,6 @@
     "name": "Enora",
     "surname": "On est là",
     "description": "(No) no fun",
-    "color": "sepia(100%) saturate(500%) hue-rotate(290deg)"
+    "color": "invert(5%) sepia(11%) saturate(1285%) hue-rotate(349deg) brightness(97%) contrast(101%)"
      
 }

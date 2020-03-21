@@ -1,7 +1,8 @@
 var CACHE_NAME = 'b49-v1';
 var urlsToCache = [
   '/index.html',
-  '/main.js'
+  '/main.js',
+  '/res/background.png',
 ];
 
 self.addEventListener('install', function (event) {
